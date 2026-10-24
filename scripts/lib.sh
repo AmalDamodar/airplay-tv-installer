@@ -10,13 +10,14 @@ ADB="${ADB:-adb}"
 CACHE="${AIRPLAY_TV_CACHE:-$HOME/.airplay-tv}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# The receiver app (third-party, GPLv3). Pinned to the version this project was tested with.
-PKG="no.gior.shieldairplay"
-APP_NAME="Shield AirPlay"
-APP_VERSION="2.0.1-shield"
-APK_NAME="Shield-AirPlay-2.0.1-shield.apk"
-APK_URL="https://github.com/ebreen/shield-airplay/releases/download/v2.0.1-shield/$APK_NAME"
-APK_SHA256="7e3a7365dd98a84531d9872856aedcbdbd4e80d5c9970481b1184826a05efbc1"
+# The receiver app: AirPlay Receiver (glass), a GPLv3 fork of Shield AirPlay. Pinned to the version this project was tested with.
+PKG="com.minimaltv.airplay"
+OLD_PKG="no.gior.shieldairplay"   # the original app; it uses the same port, so the two cannot run together
+APP_NAME="AirPlay Receiver (glass)"
+APP_VERSION="2.0.1-glass.1"
+APK_NAME="AirPlay-Receiver-glass.apk"
+APK_URL="https://github.com/AmalDamodar/airplay-glass/releases/download/v2.0.1-glass.1/$APK_NAME"
+APK_SHA256="2dba321c423425154d856209ec21e8ca4fe08e672354439cf0cf3844f7af2d2b"
 
 die() { echo "error: $*" >&2; exit 1; }
 

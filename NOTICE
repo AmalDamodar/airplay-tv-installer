@@ -1,13 +1,13 @@
 This repository contains only scripts and documentation, licensed under the MIT licence (see LICENSE).
 
-It does not contain or redistribute the AirPlay receiver app. scripts/install.sh downloads it from its official
-release page and checks its SHA-256 checksum before installing:
+It does not contain or redistribute the AirPlay receiver app. scripts/install.sh downloads it from its release page
+and checks its SHA-256 checksum before installing:
 
-  Shield AirPlay 2.0.1-shield, https://github.com/ebreen/shield-airplay
+  AirPlay Receiver (glass) 2.0.1-glass.1, https://github.com/AmalDamodar/airplay-glass
   Licence: GNU General Public License v3.0 (https://www.gnu.org/licenses/gpl-3.0.html)
-  Derived from android-airplay-server by jqssun (https://github.com/jqssun/android-airplay-server),
-  which uses UxPlay (https://github.com/FDH2/UxPlay).
-  The complete source code for that version is published with its release, next to the APK.
+  A fork of Shield AirPlay (https://github.com/ebreen/shield-airplay), derived from android-airplay-server by jqssun
+  (https://github.com/jqssun/android-airplay-server), which uses UxPlay (https://github.com/FDH2/UxPlay).
+  The source code is in the airplay-glass repository at the release tag.
 
 The two screenshots in screenshots/ show that app running on the author's TV.
 

@@ -2,39 +2,41 @@
 
 Show your iPhone, iPad or Mac screen on an Android TV, with sound, using AirPlay. No Apple TV needed.
 
-This project is a small installer and a tested set of settings around the open-source receiver app
-[Shield AirPlay](https://github.com/ebreen/shield-airplay). It gets the receiver onto your TV, gives it the permissions
-it needs, checks that it works, and tells you the three settings that made screen mirroring (YouTube, Shorts, videos)
-stable on the TV it was built on.
+This project is a small installer around the open-source receiver app
+[AirPlay Receiver (glass)](https://github.com/AmalDamodar/airplay-glass): a clean Liquid Glass interface on top of the
+Shield AirPlay engine, with the settings that made screen mirroring (YouTube, Shorts, videos) stable already built in.
+The installer gets the app onto your TV, gives it the permissions it needs and checks that it works.
 
 <p>
 <img src="screenshots/overview.jpg" width="49%" alt="The receiver ready and waiting on the TV">
-<img src="screenshots/settings.jpg" width="49%" alt="The two settings that matter: video support off, audio support on">
+<img src="screenshots/settings.jpg" width="49%" alt="Settings, with the Advanced section open">
 </p>
 
 > Not affiliated with Apple. "AirPlay" is a trademark of Apple Inc.
 
 ## What this is, and what it is not
 
-- **The receiver itself is not written here.** It is Shield AirPlay by [ebreen](https://github.com/ebreen/shield-airplay),
-  licensed GPLv3, which is built on [android-airplay-server](https://github.com/jqssun/android-airplay-server) and
-  [UxPlay](https://github.com/FDH2/UxPlay). This repository does not contain or modify it. The install script downloads
-  the official release from its own page and checks its checksum first.
-- **What this project adds:** a one-command install with the right permissions, a health check, an uninstall, a guide
-  for beginners, and the settings that fixed a real problem (see below).
+- **The receiver app lives in its own repository**, [airplay-glass](https://github.com/AmalDamodar/airplay-glass). It is a
+  GPLv3 fork of [Shield AirPlay](https://github.com/ebreen/shield-airplay) by ebreen, which is built on
+  [android-airplay-server](https://github.com/jqssun/android-airplay-server) and [UxPlay](https://github.com/FDH2/UxPlay).
+  This repository only contains scripts and documents. The install script downloads the app from the airplay-glass
+  release page and checks its checksum first.
+- **What this project adds:** a one-command install with the right permissions, a health check, an uninstall and a
+  guide for beginners.
 
 ## The problem this fixes
 
 On the TV this was built on (a Xiaomi Mi TV, Android 10), mirroring from an iPhone worked, but opening **YouTube** on the
 iPhone while mirroring made the session drop. YouTube tries to hand the video over to AirPlay directly, the receiver
 could not do that, and the whole connection died. Telling the receiver not to advertise AirPlay *video* support, so the
-iPhone keeps mirroring instead, fixed it. Details and what was ruled out: [docs/SETTINGS.md](docs/SETTINGS.md).
+iPhone keeps mirroring instead, fixed it. The app now ships with that setting off, so there is nothing to configure.
+Details and what was ruled out: [docs/SETTINGS.md](docs/SETTINGS.md).
 
 ## Will it work on my TV?
 
 | TV | Works? |
 | --- | --- |
-| Android TV or Google TV (Sony, TCL, Xiaomi, Philips, Hisense, Nvidia Shield, many others), Android 7 or newer | Should. Tested on **one** TV only: Xiaomi MiTV-MOOQ0, Android 10, with an iPhone |
+| Android TV or Google TV (Sony, TCL, Xiaomi, Philips, Hisense, Nvidia Shield, many others), Android 7 or newer | Should. Tested on **one** TV only: Xiaomi MiTV-MOOQ0, Android 10. The engine was tested mirroring from an iPhone; the glass app's screens were checked on that TV, and mirroring with this exact build is still to be confirmed |
 | Fire TV | Probably, since it runs Android, but untested. Fire TV has its own adb switch under **Settings, My Fire TV, Developer options** |
 | Samsung (Tizen), LG (webOS), Roku | No. They are not Android TV and cannot run this app. Many newer models already have AirPlay built in, check your TV's settings |
 
@@ -112,13 +114,8 @@ Stuck? [Connection problems and what each message means](docs/INSTALL.md#if-the-
 ./scripts/install.sh            # downloads the receiver, checks it, installs it, sets permissions
 ```
 
-Then, on the TV with the remote (the app cannot be configured from a computer):
-
-1. In the app choose **Settings** in the left menu and scroll to the bottom, to the Developer group.
-2. Turn on **Developer options**. More switches appear.
-3. Turn **OFF** **Advertise AirPlay video support**.
-4. Keep **ON** **Advertise AirPlay audio support**.
-5. Optional: at the top of Settings, change **Server name** to what your iPhone should show (for example "Living Room").
+That is all. Optional, on the TV with the remote: open the app, choose **Settings**, and change **Server name** (the
+default is "TV") to what your iPhone should show, for example "Living Room".
 
 Check it:
 
@@ -133,8 +130,9 @@ On the iPhone: **Control Center, Screen Mirroring, pick your TV's name.** Both d
 - Works (tested): mirroring with sound of YouTube, Shorts and other videos from an iPhone. Other apps and devices should behave the same, but were not tested.
 - Does not work: DRM-protected video such as Netflix, Disney+ or Apple TV+ shows a black screen. This is Apple's copy
   protection, not a bug here.
-- With video support off, the small AirPlay button inside a video app sends **audio only**. Use **Control Center,
-  Screen Mirroring** instead. That is the trade-off for stable mirroring.
+- With video support off (the default), the small AirPlay button inside a video app sends **audio only**. Use **Control
+  Center, Screen Mirroring** instead. That is the trade-off for stable mirroring. You can turn it back on in the app under
+  Settings, Advanced, Compatibility.
 
 ## Scripts
 
@@ -155,7 +153,8 @@ bundle any of it.
 
 ## Credits and licence
 
-- Receiver: [Shield AirPlay](https://github.com/ebreen/shield-airplay) (GPLv3) by ebreen, derived from
+- Receiver: [AirPlay Receiver (glass)](https://github.com/AmalDamodar/airplay-glass) (GPLv3), a fork of
+  [Shield AirPlay](https://github.com/ebreen/shield-airplay) by ebreen, derived from
   [android-airplay-server](https://github.com/jqssun/android-airplay-server) by jqssun, which uses
   [UxPlay](https://github.com/FDH2/UxPlay).
 - The scripts and documents in this repository: MIT, see [LICENSE](LICENSE). See [NOTICE](NOTICE) for the third-party

@@ -49,16 +49,19 @@ echo "4/4 Opening the app once, so it starts and registers itself..."
 tv monkey -p "$PKG" -c android.intent.category.LEANBACK_LAUNCHER 1 >/dev/null 2>&1 \
   || tv monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 || true
 
+if tv pm list packages -e | grep -qx "package:$OLD_PKG"; then
+  echo
+  echo "Note: the original Shield AirPlay app is also installed. It uses the same port, so only one of the two can run."
+  echo "To switch it off (undoable): adb shell pm disable-user --user 0 $OLD_PKG"
+  echo "To switch it back on:        adb shell pm enable $OLD_PKG"
+fi
+
 cat <<EOF
 
-Installed. One thing is left, and it must be done on the TV with the remote
-(the app has no way to set these from a computer):
+Installed. The defaults already include the fix for iPhone mirroring (AirPlay video support off), so there is
+nothing else to set. Optional, on the TV with the remote: open the app, Settings, Receiver, and change the
+name your iPhone will show (the default is "TV").
 
-  1. In the app open Settings and scroll to the Developer group.
-  2. Turn on "Developer options".
-  3. Turn OFF  "Advertise AirPlay video support".
-  4. Keep ON   "Advertise AirPlay audio support".
-  5. Optional: Settings, "Server name": the name your iPhone will show.
-
-Why these settings: docs/SETTINGS.md. Then check everything with: ./scripts/check.sh
+On the iPhone: Control Center, Screen Mirroring, pick the TV's name.
+Check everything with: ./scripts/check.sh   (settings explained: docs/SETTINGS.md)
 EOF

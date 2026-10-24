@@ -122,20 +122,19 @@ What you will see:
    compares the download with a fixed fingerprint. If it does not match, the file is deleted and nothing is installed.
 2. "Installing on the TV" then `Success`.
 3. "Giving it the permissions it needs".
-4. The app opens on the TV, and the script prints the settings to change next.
+4. The app opens on the TV. If the original Shield AirPlay app is also installed, the script tells you how to switch it
+   off, because both use the same port.
 
 Safe to run again at any time. It keeps the receiver's settings.
 
 ## 5. Set the receiver up on the TV
 
-The app's settings cannot be changed from a computer, so use the remote. Full explanation: [SETTINGS.md](SETTINGS.md).
+Nothing is required: the app ships with the settings that keep iPhone mirroring stable ([SETTINGS.md](SETTINGS.md)).
+Optional, with the remote:
 
 1. In the app, move left to the menu and choose **Settings**.
-2. Press down to scroll to the bottom, to the Developer group. Turn on **Developer options**; more switches appear.
-3. Set **Advertise AirPlay video support** to **OFF**.
-4. Keep **Advertise AirPlay audio support** **ON**.
-5. Optional, at the top: change **Server name**, for example to "Living Room".
-6. Go back to **Overview**. It should say **Ready**. If it says Stopped, choose **Start**.
+2. At the top, change **Server name** to what your iPhone should show, for example "Living Room". The default is "TV".
+3. Go back to **Overview**. It should say **Ready**. If it says Stopped, choose **Start**.
 
 Careful with the remote on the Overview screen: the big button there is **Stop** while the receiver runs, so pressing OK
 twice in a row stops it.

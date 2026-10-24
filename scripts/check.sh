@@ -44,6 +44,9 @@ else
 fi
 
 echo
-echo "Cannot be checked from here, so look at the TV once: Settings, Developer group,"
-echo "'Advertise AirPlay video support' OFF and 'Advertise AirPlay audio support' ON (docs/SETTINGS.md)."
+echo "Cannot be checked from here: in the app, Settings, Advanced, Compatibility, 'Advertise AirPlay video support'"
+echo "should be OFF (the default) and 'Advertise AirPlay audio support' ON (docs/SETTINGS.md)."
+if tv pm list packages -e | grep -qx "package:$OLD_PKG"; then
+  bad "original Shield AirPlay" "still enabled: it uses the same port (see ./scripts/install.sh output for how to switch it off)"
+fi
 [ "$ok" = 1 ] && echo "All checks passed." || { echo "Some checks failed, see above."; exit 1; }

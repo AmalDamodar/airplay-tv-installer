@@ -1,21 +1,23 @@
 # The settings, and why
 
-The receiver app keeps its settings inside itself. They cannot be changed from a computer, so you set them once on the
-TV with the remote. Open the app, choose **Settings** in the left menu.
+The app keeps its settings inside itself, so they are changed on the TV with the remote: open the app, choose
+**Settings** in the left menu. The first screen is deliberately short; everything else is under **Advanced**.
 
-## The ones that matter
+## The ones you may want to change
 
-| Setting | Value | Where | Why |
+| Setting | Default | Where | Why |
 | --- | --- | --- | --- |
-| Advertise AirPlay video support | **OFF** | Settings, bottom, Developer group (turn on **Developer options** first) | This is the fix. See below |
-| Advertise AirPlay audio support | **ON** | same place | The receiver stays visible to the iPhone's sound and media controls, and sound plays on the TV |
-| Server name | your choice | top of Settings | The name the iPhone shows in Screen Mirroring. Change it from the default if you like, for example "Living Room" |
-| Start server at boot | ON (default) | Server group | The receiver is ready after the TV starts |
-| Run in background | ON (default) | Server group | Keeps it reachable after you leave the app |
+| Server name | TV | Receiver | The name the iPhone shows in Screen Mirroring, for example "Living Room" |
+| Start server at boot | on | Receiver | The receiver is ready after the TV starts |
+| Run in background | on | Receiver | Keeps it reachable after you leave the app |
+| Require PIN | off | Connection | Asks for a 4-digit PIN on every new connection |
+| Open this application on connect | on | Connection | Shows the app when an iPhone connects (needs "Display over other apps", which the installer grants) |
+| App theme | System | Appearance | System, Light or Dark |
 
-Leave everything else at its default unless you have a reason.
+## The fix that is built in: AirPlay video support is off
 
-## Why "video support" is off
+**Advanced, Compatibility, Advertise AirPlay video support** is **off** by default. **Advertise AirPlay audio support**
+stays **on**.
 
 When an iPhone sees a receiver that supports AirPlay **video**, apps like YouTube try a "hand-off": instead of mirroring
 the screen, the app asks the TV to play the video itself. On the TV this was built on, that hand-off failed, and the
@@ -27,6 +29,9 @@ and other videos play with sound on the TV.
 **The trade-off:** the small AirPlay button inside a video app now sends audio only. To put the picture on the TV, use
 **Control Center, Screen Mirroring** on the iPhone instead.
 
+If you prefer the hand-off and your iPhone and TV handle it, turn video support back on there, then choose **Stop** and
+**Start** on the Overview screen so the receiver announces itself again.
+
 ## Things that were tried and were not the cause
 
 On the test TV these did not change the problem, so you can leave them alone:
@@ -36,15 +41,11 @@ On the test TV these did not change the problem, so you can leave them alone:
 
 ## If sound plays on the iPhone and not on the TV
 
-Check that **Advertise AirPlay audio support** is **ON**. With it off, the sound was sent to the phone in testing.
-
-## Changing a setting later
-
-Open the app from the TV's app list, **Settings**, change it. To be safe, choose **Stop** and then **Start** on the Overview screen
-afterwards, so the receiver announces itself again with the new settings.
+Check that **Advertise AirPlay audio support** is **on**. With it off, the sound was sent to the phone in testing.
 
 ## What was verified
 
-These values were read off the app's own Settings screen on the test TV (screenshot at the top of the README): video
-support off, audio support on, ALAC off, AAC on. Mirroring of YouTube, Shorts and videos with sound from an iPhone was
-confirmed working by the TV's owner. Other TVs and other iPhone/iPad/Mac models were not tested.
+On the test TV the engine's settings were read from the app's own screen: video support off, audio support on, ALAC off,
+AAC on, and mirroring of YouTube, Shorts and videos with sound from an iPhone was confirmed working by the TV's owner
+with the original Shield AirPlay app. The glass app has the same engine and the same defaults; its screens were checked
+on the same TV. Other TVs and other iPhone, iPad or Mac models were not tested.
