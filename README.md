@@ -9,7 +9,7 @@ The installer gets the app onto your TV, gives it the permissions it needs and c
 
 <p>
 <img src="screenshots/overview.jpg" width="49%" alt="The receiver ready and waiting on the TV">
-<img src="screenshots/settings.jpg" width="49%" alt="Settings: the focused option is lit like a pane of glass">
+<img src="screenshots/settings.jpg" width="49%" alt="Settings: the selected row gets a soft highlight">
 </p>
 
 > Not affiliated with Apple. "AirPlay" is a trademark of Apple Inc.
