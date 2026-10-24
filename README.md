@@ -36,7 +36,7 @@ Details and what was ruled out: [docs/SETTINGS.md](docs/SETTINGS.md).
 
 | TV | Works? |
 | --- | --- |
-| Android TV or Google TV (Sony, TCL, Xiaomi, Philips, Hisense, Nvidia Shield, many others), Android 7 or newer | Should. Tested on **one** TV only: Xiaomi MiTV-MOOQ0, Android 10. The engine was tested mirroring from an iPhone; the glass app's screens were checked on that TV, and mirroring with this exact build is still to be confirmed |
+| Android TV or Google TV (Sony, TCL, Xiaomi, Philips, Hisense, Nvidia Shield, many others), Android 7 or newer | Should. Tested on **one** TV only: Xiaomi MiTV-MOOQ0, Android 10. Mirroring from an iPhone, including YouTube with sound, was tested with this exact build (2.0.1-glass.4) on that TV |
 | Fire TV | Probably, since it runs Android, but untested. Fire TV has its own adb switch under **Settings, My Fire TV, Developer options** |
 | Samsung (Tizen), LG (webOS), Roku | No. They are not Android TV and cannot run this app. Many newer models already have AirPlay built in, check your TV's settings |
 
