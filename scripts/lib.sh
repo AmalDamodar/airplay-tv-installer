@@ -14,10 +14,10 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PKG="com.minimaltv.airplay"
 OLD_PKG="no.gior.shieldairplay"   # the original app; it uses the same port, so the two cannot run together
 APP_NAME="AirPlay Receiver (glass)"
-APP_VERSION="2.0.1-glass.3"
+APP_VERSION="2.0.1-glass.4"
 APK_NAME="AirPlay-Receiver-glass.apk"
-APK_URL="https://github.com/AmalDamodar/airplay-glass/releases/download/v2.0.1-glass.3/$APK_NAME"
-APK_SHA256="cdce4b6f6506054ae371b57dcd63367ee70571c042e2a35c73bc312fcbc8fcf4"
+APK_URL="https://github.com/AmalDamodar/airplay-glass/releases/download/v2.0.1-glass.4/$APK_NAME"
+APK_SHA256="af2ba36892f4161d14b2a416e28ab3cdff2a60b8e190284120efa9262ae70fb9"
 
 die() { echo "error: $*" >&2; exit 1; }
 
